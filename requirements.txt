@@ -9,3 +9,4 @@ tiktoken==0.5.1
 unstructured==0.10.30
 groq
 langchain-groq
+sentence-transformers
