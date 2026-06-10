@@ -1,8 +1,9 @@
-# Import Chroma vector database
-from langchain.vectorstores import Chroma
+
+# Import Chroma vector database from LangChain Community
+from langchain_community.vectorstores import Chroma
 
 # Import HuggingFace embedding model
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 
 class VectorStore:
@@ -16,12 +17,8 @@ class VectorStore:
     """
 
     def __init__(self, path):
-        """
-        Initialize vector database.
-        """
 
-        # Local embedding model
-        # Converts text into vectors
+        # Embedding model used to convert text into vectors
         self.embeddings = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-MiniLM-L6-v2"
         )
@@ -34,30 +31,18 @@ class VectorStore:
 
     def add_documents(self, documents):
         """
-        Add processed documents to ChromaDB.
-
-        Parameters:
-            documents : List of LangChain Document objects
+        Add documents to ChromaDB.
         """
 
         self.vectorstore.add_documents(documents)
 
-        # Persist vectors to disk
-        self.vectorstore.persist()
-
     def similarity_search(self, query, k=4):
         """
-        Retrieve most relevant document chunks.
-
-        Parameters:
-            query : User question
-            k     : Number of chunks to retrieve
-
-        Returns:
-            List of relevant document chunks
+        Search similar chunks.
         """
 
         return self.vectorstore.similarity_search(
             query,
             k=k
         )
+

@@ -9,4 +9,5 @@ class Config:
     MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY")
     MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY")
     MINIO_BUCKET_NAME = os.getenv("MINIO_BUCKET_NAME")
-    VECTORE_DB_PATH = "vector_db"    
+    VECTOR_DB_PATH = "vector_db"    
+print("GROQ KEY:", Config.GROQ_API_KEY)
